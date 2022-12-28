@@ -1,25 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import  {Item} from "./types/Item"
+import * as C from "./app.style"
+import { ListItem } from "./Componets/ListItens/index";
+import { AddArea } from "./Componets/AddArea";
 
-function App() {
+function App() { 
+
+const [lista, setLista] = useState<Item[]>([
+]);  
+
+
+const handleAddTask = (taskName: string) =>{
+ let newList = [...lista]; 
+ newList.push({
+  id:lista.length + 1, 
+  tarefa:taskName, 
+  done:false
+ }); 
+ setLista(newList); 
+}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <> 
+     <C.GlobalStyle />
+     <C.Container>
+        <C.Area>
+          <C.Header>
+             CRUD TYPESCRIPT
+          </C.Header>  
+            <AddArea  onEnter ={handleAddTask} />
+           {lista.map((item, index)=>(
+            <ListItem  key={index} item={item} />
+           ))}
+        </C.Area>
+     </C.Container>
+    </>
   );
 }
 
