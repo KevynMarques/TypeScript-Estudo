@@ -7,6 +7,7 @@ type ContainerProps = {
 export const Container = styled.div(({ done }: ContainerProps)=>(
     `
     display: flex;
+    justify-content:space-between; 
     background-color: #20212C;
     padding: 10px;
     border-radius: 10px;
@@ -20,6 +21,13 @@ export const Container = styled.div(({ done }: ContainerProps)=>(
     label {
         color: #CCC;
         text-decoration: ${done ? 'line-through' : 'initial'};
+        margin-left:20px; 
     }
 `
 ));
+
+export const Del = styled.div`
+color: red;
+cursor: pointer;
+
+`

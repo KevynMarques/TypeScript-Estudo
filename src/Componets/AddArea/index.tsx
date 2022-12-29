@@ -1,9 +1,12 @@
+
 import { useState, KeyboardEvent } from 'react';
 import * as C from './style';
 
 type Props = {
-    onEnter: (taskName: string) => void
+    onEnter: (taskName: string) => void 
 }
+
+
 
 
 
@@ -17,10 +20,17 @@ export const AddArea = ({onEnter}:Props) => {
         }
      }
 
+     function handleClick () {
+            onEnter(inputText)
+            setInputText('')
+     }
+
 
     return (
         <C.Container>
-            <div className="image">➕</div> 
+            <div
+             onClick={handleClick}
+             className="Soma">+</div> 
             
             <input
                 type="text"

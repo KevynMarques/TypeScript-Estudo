@@ -7,8 +7,11 @@ export const Container = styled.div`
     margin: 20px 0;
     display: flex;
     align-items: center;
-    .image {
+    .Soma {
         margin-right: 5px;
+        cursor: pointer;
+        margin-right: 15px;
+        margin-left: 15px;
     }
     input {
         border: 0px;

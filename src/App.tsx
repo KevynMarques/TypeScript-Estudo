@@ -20,6 +20,22 @@ const handleAddTask = (taskName: string) =>{
  setLista(newList); 
 }
 
+const Del = ( index : number) => {
+  let delArray = [...lista]; 
+    delArray.splice(index ,1)
+     setLista(delArray)
+}
+
+const attTaskDone = (id: number, done: boolean) => {
+  let newList = [...lista];
+  for(let i in newList) {
+    if(newList[i].id === id) {
+      newList[i].done = done;
+    }
+  }
+  setLista(newList);
+}
+
   return (
     <> 
      <C.GlobalStyle />
@@ -28,9 +44,15 @@ const handleAddTask = (taskName: string) =>{
           <C.Header>
              CRUD TYPESCRIPT
           </C.Header>  
-            <AddArea  onEnter ={handleAddTask} />
+            <AddArea  
+            onEnter ={handleAddTask} />
            {lista.map((item, index)=>(
-            <ListItem  key={index} item={item} />
+            <ListItem 
+              Del = {Del}  
+              key={index} 
+              id={index} 
+              item={item}
+              attTaskDone={attTaskDone} />
            ))}
         </C.Area>
      </C.Container>
