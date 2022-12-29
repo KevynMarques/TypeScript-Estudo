@@ -26,7 +26,7 @@ function attDone (e : any) {
          onChange={attDone}
          type="checkbox" 
          checked={isChecked} />
-        <label>{item.tarefa} - {item.done.toString()}</label> 
+        <label>{item.tarefa}</label> 
       </div>
         <C.Del 
         onClick={()=>{
@@ -37,3 +37,5 @@ function attDone (e : any) {
       </C.Container>
     )
 }
+
+// finalizado
